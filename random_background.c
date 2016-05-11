@@ -1,3 +1,10 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <unistd.h>
+#include <time.h>
+#include <dirent.h>
+
 /*
 random_background by Andrea Gilmozzi (@agilmo)
 Copyright (c) 2015
@@ -7,12 +14,6 @@ Tweet me for help.
 USAGE
 random_background [absolute_path_to_wallpapers] [seconds]
 */
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include <unistd.h>
-#include <time.h>
-#include <dirent.h>
 
 // CMD shell command to change background
 // change this line as needed

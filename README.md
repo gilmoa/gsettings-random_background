@@ -1,6 +1,6 @@
 # gsettings-random_background
 
-`make install` as root to install to /bin/random_background
+`make install` as root to install to `/bin/random_background`
 
 run the command at DE startup is nice.
 

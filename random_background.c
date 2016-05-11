@@ -1,3 +1,12 @@
+/*
+random_background by Andrea Gilmozzi (@agilmo)
+Copyright (c) 2015
+Everything is fine such a mess for 100 lines of code.
+Tweet me for help.
+
+USAGE
+random_background [absolute_path_to_wallpapers] [seconds]
+*/
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -5,7 +14,9 @@
 #include <time.h>
 #include <dirent.h>
 
-#define CMD "gsettings set org.gnome.desktop.background picture-uri file://"
+// CMD shell command to change background
+// change this line as needed
+char CMD[] = "gsettings set org.gnome.desktop.background picture-uri file://";
 
 int main(int argc, char *argv[])
 {
@@ -17,6 +28,8 @@ int main(int argc, char *argv[])
 
     char *path = argv[1];
     int t = atoi(argv[2]);
+
+    // Arguments sanity check
     if(t < 1)
     {
         printf("[seconds] must be at least 1.\n");
@@ -45,6 +58,7 @@ int main(int argc, char *argv[])
     struct dirent *file;
     int i = 0;
 
+    // Read files in directory
     while((file = readdir(dir)) != NULL)
     {
         if(i >= array_size)
@@ -76,10 +90,11 @@ int main(int argc, char *argv[])
     int rnd;
     char *cmd;
 
+    // Randomly change background
     while(1)
     {
         rnd = rand() % i;
-        cmd = malloc(62 + strlen(imgs[rnd]) + 1);
+        cmd = malloc(strlen(CMD) + strlen(imgs[rnd]) + 1);
         strcpy(cmd, CMD);
         strcat(cmd, imgs[rnd]);
 
